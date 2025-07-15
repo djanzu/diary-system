@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(php composer.phar create-project:*)",
+      "Bash(php artisan make:auth:*)",
+      "Bash(php:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": []
+  }
+}
