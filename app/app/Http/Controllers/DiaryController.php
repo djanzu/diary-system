@@ -66,4 +66,26 @@ class DiaryController extends Controller
             })
         ]);
     }
+    
+    public function apiStore(Request $request)
+    {
+        try {
+            $request->validate([
+                'date' => 'required|date',
+                'content' => 'nullable|string|max:1000'
+            ]);
+            
+            Diary::updateOrCreate(
+                ['date' => Carbon::parse($request->date)->format('Y-m-d')],
+                ['content' => $request->content]
+            );
+            
+            return response()->json(['status' => 'OK'], 200);
+            
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['status' => 'NG'], 403);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'NG'], 403);
+        }
+    }
 }

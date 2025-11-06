@@ -92,3 +92,17 @@ soft deleteは使用しません。
 }
 ```
 となります。
+
+### 日記投稿
+指定された年月日の日記保存します。
+- endpoint: /api/diary
+- parameter:
+  - date: 日付
+  - content: 日記の内容
+- method: post
+- return:
+```
+正常時：{"status": "OK"}
+失敗時：{"status": "NG"}
+```
+status codeはそれぞれ200, 403を使用してください。
